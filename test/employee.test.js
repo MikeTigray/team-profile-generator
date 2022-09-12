@@ -59,19 +59,6 @@ describe("Employee", () => {
       // Assert
       expect(isNaN(obj.id)).toEqual(false);
     });
-    // Exception test
-
-    it("should throw an error if office number is not a number value", () => {
-      // Arrange
-      const name = "Mike";
-      const email = "miketesfay23@gmail.com";
-      const id = "not a number";
-      const err = new Error("Id and office number must be number values");
-      // Act
-      const cb = () => new Employee(name, email, id);
-      // Assert
-      expect(cb).toThrow(err);
-    });
   });
 
   // Methods in Prototype of Employee class

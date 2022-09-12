@@ -1,3 +1,4 @@
+const Employee = require("../lib/employee");
 const Manager = require("../lib/manager");
 
 describe("Initialization", () => {
@@ -6,7 +7,7 @@ describe("Initialization", () => {
 
     const obj = new Manager();
     // Assert
-    expect(obj instanceof Manager).toEqual(true);
+    expect(obj instanceof Employee).toEqual(true);
   });
   it("should have an office number property", () => {
     // Arrange
@@ -15,7 +16,7 @@ describe("Initialization", () => {
     expect("officeNumber" in obj).toEqual(true);
   });
 
-  it("office number must be a number value", () => {
+  it("should pass in all values of argument", () => {
     // Arrange
     const name = "Mike";
     const email = "miketesfay23@gmail.com";
@@ -26,21 +27,9 @@ describe("Initialization", () => {
     const obj = new Manager(name, email, id, officeNumber);
 
     // Assert
-    expect(isNaN(obj.officeNumber)).toEqual(false);
-  });
-
-  // Exception test
-
-  it("should throw an error if office number is not a number value", () => {
-    // Arrange
-    const name = "Mike";
-    const email = "miketesfay23@gmail.com";
-    const id = "not a number";
-    const officeNumber = 23;
-    const err = new Error("Id and office number must be a number value");
-    // Act
-    const cb = () => new Manager(name, email, id, officeNumber);
-    // Assert
-    expect(cb).toEqual(err);
+    expect(obj.name).toEqual(name);
+    expect(obj.email).toEqual(email);
+    expect(obj.id).toEqual(id);
+    expect(obj.officeNumber).toEqual(officeNumber);
   });
 });
