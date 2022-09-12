@@ -39,81 +39,149 @@ inquirer
   ])
   .then((answers) => {
     // push manager answers into team array
-    team.push(helper.generateManager(answers));
-    console.log(team);
+    let { name, email, id, officeNumber } = answers;
+    const manager = new Manager(name, email, id, officeNumber);
+
+    team.push(helper.generateManager(manager));
+
     switch (answers.choice) {
       case "Engineer":
         createEngineer();
         break;
       case "Employee":
         createEmployee();
+        break;
       case "Intern":
         createIntern();
+        break;
       default:
         writeToFile();
         break;
     }
-
-    // fs.writeFile("newIndex.html", helper.generateManager(manager), (err) =>
-    //   err ? console.log(err) : console.log("written successfully!")
-    // );
   });
 
-//   .prompt([
-//     {
-//       type: "input",
-//       name: "name",
-//       message: "What is the team manager's name?",
-//     },
-//   ]);
-// function createEngineer() {
-//   inquirer
-//     .prompt([
-//       {
-//         type: "input",
-//         name: "name",
-//         message: "What is your engineer's name?",
-//       },
-//       {
-//         type: "input",
-//         name: "id",
-//         message: "What is your engineer's id?",
-//       },
-//       {
-//         type: "input",
-//         name: "email",
-//         message: "What is your engineer's email?",
-//       },
-//       {
-//         type: "input",
-//         name: "gitHub",
-//         message: "What is your engineer's git hub?",
-//       },
-//       {
-//         type: "list",
-//         name: "choice",
-//         message: "what type of team member would you like?",
-//         choices: helper.choices(),
-//       },
-//     ])
-//     .then((answers) => {
-//       team.push(helper.generateEngineer(answers));
-//       switch (answers.choice) {
-//         case "Engineer":
-//           createEngineer();
-//           break;
-//         case "Employee":
-//           createEmployee();
-//         case "Intern":
-//           createIntern();
-//         default:
-//           writeToFile();
-//           break;
-//       }
-//     });
-// }
-// function writeToFile(team) {
-//   fs.writeFile("newIndex.html", helper.generateHtml(team), (err) =>
-//     err ? console.log(err) : console.log("written successfully!")
-//   );
-// }
+const writeToFile = () => {
+  fs.writeFile("newIndex.html", helper.generateHtml(team), (err) =>
+    err ? console.log(err) : console.log("written successfully!")
+  );
+};
+
+function createEngineer() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "What is your engineer's name?",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is your engineer's email?",
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "What is your engineer's id?",
+      },
+      {
+        type: "input",
+        name: "gitHub",
+        message: "What is your engineer's git hub?",
+      },
+      {
+        type: "list",
+        name: "choice",
+        message: "what type of team member would you like?",
+        choices: helper.choices(),
+      },
+    ])
+    .then((answers) => {
+      let { name, email, id, gitHub } = answers;
+      const engineer = new Engineer(name, email, id, gitHub);
+      team.push(helper.generateEngineer(engineer));
+      switch (answers.choice) {
+        case "Engineer":
+          createEngineer();
+          break;
+        case "Employee":
+          createEmployee();
+          break;
+        case "Intern":
+          createIntern();
+          break;
+        default:
+          writeToFile();
+          break;
+      }
+    });
+}
+function createIntern() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "What is your intern's name?",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is your intern's email?",
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "What is your intern's id?",
+      },
+      {
+        type: "input",
+        name: "school",
+        message: "What is your intern's school name?",
+      },
+      {
+        type: "list",
+        name: "choice",
+        message: "what type of team member would you like?",
+        choices: helper.choices(),
+      },
+    ])
+    .then((answers) => {
+      let { name, email, id, school } = answers;
+      const intern = new Intern(name, email, id, school);
+      team.push(helper.generateIntern(intern));
+      switch (answers.choice) {
+        case "Engineer":
+          createEngineer();
+          break;
+        case "Employee":
+          createEmployee();
+          break;
+        case "Intern":
+          createIntern();
+          break;
+        default:
+          writeToFile();
+          break;
+      }
+    });
+}
+function createEmployee() {
+  inquirer.prompt([
+    {
+      type: "input",
+      name: "name",
+      message: "What is your employee's name?",
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "What is your employee's email?",
+    },
+    {
+      type: "input",
+      name: "id",
+      message: "What is your employee's id?",
+    },
+  ]);
+}

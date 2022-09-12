@@ -1,8 +1,14 @@
 function choices() {
-  return ["Engineer", "Employee", "I don't want to add any more members"];
+  return [
+    "Engineer",
+    "Employee",
+    "Intern",
+    "I don't want to add any more members",
+  ];
 }
+// Generates html for manager portion
 
-const generateManager = ({ name, id, email, officeNumber }) => {
+const generateManager = ({ name, id, email, officeNumber, role }) => {
   return `<div class="row">
     <!-- One Employee-->
     <div class="col">
@@ -35,11 +41,11 @@ const generateManager = ({ name, id, email, officeNumber }) => {
             />
           </svg>
           <!-- Role -->
-          <h5 class="col" id="role">Role</h5>
+          <h5 class="col" id="role">${role}</h5>
         </div>
         <div class="col">
-          <p id="id" class="card-text">${id}:</p>
-          <p id="email" class="card-text"><a href="#">${email}: </a></p>
+          <p id="id" class="card-text">ID : ${id}</p>
+          <p id="email" class="card-text"><a href="#">email: ${email}: </a></p>
           <p id="thirdData" class="card-text">office number: ${officeNumber} </p>
         </div>
       </div>
@@ -47,7 +53,74 @@ const generateManager = ({ name, id, email, officeNumber }) => {
     </div>`;
 };
 
-const generateHtml = (team) => {
+// Generates html for engineer portion
+
+const generateEngineer = ({ name, email, id, role, gitHub }) => {
+  return `<div class="row">
+  <!-- One Employee-->
+  <div class="col">
+    <div
+      class="container card-body border border-dark"
+      style="width: 18rem"
+    >
+      <!-- Name -->
+      <div class="row">
+        <h4 id="name" class="card-title col">${name}</h4>
+      </div>
+      <div class="row">
+        <!-- Icon -->
+        <svg  class="col" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eyeglasses" viewBox="0 0 16 16">
+        <path d="M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A1.993 1.993 0 0 0 8 6c-.532 0-1.016.208-1.375.547zM14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+      </svg>
+        <!-- Role -->
+        <h5 class="col" id="role">${role}</h5>
+      </div>
+      <div class="col">
+        <p id="id" class="card-text">ID : ${id}</p>
+        <p id="email" class="card-text"><a href="#">email: ${email}: </a></p>
+        <p id="thirdData" class="card-text">GitHub: ${gitHub} </p>
+      </div>
+    </div>
+  </div>
+  </div>`;
+};
+
+// Generates html for intern
+const generateIntern = ({ name, email, id, role, school }) => {
+  return `<div class="row">
+  <!-- One Employee-->
+  <div class="col">
+    <div
+      class="container card-body border border-dark"
+      style="width: 18rem"
+    >
+      <!-- Name -->
+      <div class="row">
+        <h4 id="name" class="card-title col">${name}</h4>
+      </div>
+      <div class="row">
+        <!-- Icon -->
+        <svg  class="col" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mortarboard" viewBox="0 0 16 16">
+        <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z"/>
+        <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46l-3.892-1.556Z"/>
+      </svg>
+        <!-- Role -->
+        <h5 class="col" id="role">${role}</h5>
+      </div>
+      <div class="col">
+        <p id="id" class="card-text">ID : ${id}</p>
+        <p id="email" class="card-text"><a href="#">email: ${email}: </a></p>
+        <p id="thirdData" class="card-text">School: ${school} </p>
+      </div>
+    </div>
+  </div>
+  </div>`;
+};
+
+const generateEmployee = () => {};
+
+// Generates html for file
+const generateHtml = (...team) => {
   return `<!DOCTYPE html>
     <html lang="en">
       <head>
@@ -70,7 +143,7 @@ const generateHtml = (team) => {
         </header>
     
         <main class="container">
-
+            ${team}
             <!-- End of one employee -->
 
         </main>
@@ -83,4 +156,6 @@ module.exports = {
   choices,
   generateHtml,
   generateManager,
+  generateEngineer,
+  generateIntern,
 };
