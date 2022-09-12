@@ -1,5 +1,5 @@
 const Engineer = require("../lib/engineer");
-
+const Employee = require("../lib/employee");
 describe("Initialization", () => {
   it("should be a sub class of parent Employee", () => {
     // Arrange
@@ -9,15 +9,19 @@ describe("Initialization", () => {
   });
   it("should have a github property", () => {
     // Arrange
+    const name = "Mike";
+    const email = "miketesfay23@gmail.com";
+    const id = 5;
     const github = "MikeTigray";
-    const obj = new Engineer(github);
+    // Act
+    const obj = new Engineer(name, email, id, github);
     // Assert
     expect(obj.gitHub).toEqual(github);
   });
 
   // Prototype methods
 
-  describe("getRole method()", () => {
+  describe("Prototype methods", () => {
     it("getRole method should return 'Engineer' string", () => {
       // Arrange
       const obj = new Engineer();
@@ -28,10 +32,12 @@ describe("Initialization", () => {
 
     it("getGithub method should return github username", () => {
       // Arrange
-      let gitHub;
-      const obj = new Engineer(gitHub);
+      const name = "Mike";
+      const email = "miketesfay23@gmail.com";
+      const id = 5;
+      const github = "MikeTigray";
       // Act
-
+      const obj = new Engineer(name, email, id, github);
       // Assert
       expect(obj.getGithub()).toEqual(obj.gitHub);
     });

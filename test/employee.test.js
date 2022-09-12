@@ -4,20 +4,29 @@ describe("Employee", () => {
   describe("Initialization", () => {
     it("should return a new object with a 'name' property when called with the new keyword", () => {
       // Arrange
-      const obj = new Employee();
+      const name = "Mike";
+      const email = "miketesfay23@gmail.com";
+      const id = 6;
+      const obj = new Employee(name, email, id);
 
       //   Assert
       expect("name" in obj).toEqual(true);
     });
     it("should return a new object with an 'id' property when called with the new keyword", () => {
       // Arrange
-      const obj = new Employee();
+      const name = "Mike";
+      const email = "miketesfay23@gmail.com";
+      const id = 6;
+      const obj = new Employee(name, email, id);
       //   Assert
       expect("id" in obj).toEqual(true);
     });
     it("should return a new object with an 'email' property when called with the new keyword", () => {
       // Arrange
-      const obj = new Employee();
+      const name = "Mike";
+      const email = "miketesfay23@gmail.com";
+      const id = 6;
+      const obj = new Employee(name, email, id);
       //   Assert
       expect("email" in obj).toEqual(true);
     });
@@ -50,6 +59,19 @@ describe("Employee", () => {
       // Assert
       expect(isNaN(obj.id)).toEqual(false);
     });
+    // Exception test
+
+    it("should throw an error if office number is not a number value", () => {
+      // Arrange
+      const name = "Mike";
+      const email = "miketesfay23@gmail.com";
+      const id = "not a number";
+      const err = new Error("Id and office number must be number values");
+      // Act
+      const cb = () => new Employee(name, email, id);
+      // Assert
+      expect(cb).toThrow(err);
+    });
   });
 
   // Methods in Prototype of Employee class
@@ -65,7 +87,7 @@ describe("Employee", () => {
         const obj = new Employee(name, email, id);
         const result = obj.getName();
         // Assert
-        expect(result).toEqual(obj.name);
+        expect(result).toEqual(name);
       });
     });
 
@@ -79,7 +101,7 @@ describe("Employee", () => {
         const obj = new Employee(name, email, id);
         const result = obj.getId();
         // Assert
-        expect(result).toEqual(obj.id);
+        expect(result).toEqual(id);
       });
 
       describe("getEmail method", () => {
@@ -92,7 +114,7 @@ describe("Employee", () => {
           const obj = new Employee(name, email, id);
           const result = obj.getEmail();
           // Assert
-          expect(result).toEqual(obj.email);
+          expect(result).toEqual(email);
         });
 
         describe("getRole method", () => {
