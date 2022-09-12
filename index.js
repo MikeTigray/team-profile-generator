@@ -61,7 +61,7 @@ inquirer
   });
 
 const writeToFile = () => {
-  fs.writeFile("newIndex.html", helper.generateHtml(team), (err) =>
+  fs.writeFile("./dist/newIndex.html", helper.generateHtml(team), (err) =>
     err ? console.log(err) : console.log("written successfully!")
   );
 };
@@ -103,9 +103,6 @@ function createEngineer() {
       switch (answers.choice) {
         case "Engineer":
           createEngineer();
-          break;
-        case "Employee":
-          createEmployee();
           break;
         case "Intern":
           createIntern();
@@ -166,22 +163,6 @@ function createIntern() {
       }
     });
 }
-function createEmployee() {
-  inquirer.prompt([
-    {
-      type: "input",
-      name: "name",
-      message: "What is your employee's name?",
-    },
-    {
-      type: "input",
-      name: "email",
-      message: "What is your employee's email?",
-    },
-    {
-      type: "input",
-      name: "id",
-      message: "What is your employee's id?",
-    },
-  ]);
-}
+fs.writeFile("./dist/newIndex.html", "It works", (err) =>
+  err ? console.log(err) : console.log("written")
+);
