@@ -48,9 +48,6 @@ inquirer
       case "Engineer":
         createEngineer();
         break;
-      case "Employee":
-        createEmployee();
-        break;
       case "Intern":
         createIntern();
         break;
@@ -163,6 +160,3 @@ function createIntern() {
       }
     });
 }
-fs.writeFile("./dist/newIndex.html", "It works", (err) =>
-  err ? console.log(err) : console.log("written")
-);

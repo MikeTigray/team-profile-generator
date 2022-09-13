@@ -1,10 +1,5 @@
 function choices() {
-  return [
-    "Engineer",
-    "Employee",
-    "Intern",
-    "I don't want to add any more members",
-  ];
+  return ["Engineer", "Intern", "I don't want to add any more members"];
 }
 // Generates html for manager portion
 
@@ -13,7 +8,7 @@ const generateManager = ({ name, id, email, officeNumber, role }) => {
     <!-- One Employee-->
     <div class="col">
       <div
-        class="container card-body border border-dark"
+        class="container card-body"
         style="width: 18rem"
       >
         <!-- Name -->
@@ -45,8 +40,8 @@ const generateManager = ({ name, id, email, officeNumber, role }) => {
         </div>
         <div class="col">
           <p id="id" class="card-text">ID : ${id}</p>
-          <p id="email" class="card-text"><a href="#">email: ${email}: </a></p>
-          <p id="thirdData" class="card-text">office number: ${officeNumber} </p>
+          <p id="email" class="card-text">email: <a target="_blank" href="https://${email}">${email}: </a></p>
+          <p id="thirdData" class="card-text">office number : ${officeNumber} </p>
         </div>
       </div>
     </div>
@@ -60,7 +55,7 @@ const generateEngineer = ({ name, email, id, role, gitHub }) => {
   <!-- One Employee-->
   <div class="col">
     <div
-      class="container card-body border border-dark"
+      class="container card-body"
       style="width: 18rem"
     >
       <!-- Name -->
@@ -77,8 +72,9 @@ const generateEngineer = ({ name, email, id, role, gitHub }) => {
       </div>
       <div class="col">
         <p id="id" class="card-text">ID : ${id}</p>
-        <p id="email" class="card-text"><a href="#">email: ${email}: </a></p>
-        <p id="thirdData" class="card-text">GitHub: ${gitHub} </p>
+        <p id="email" class="card-text">email: <a target="_blank" href="https://${email}">${email}: </a></p>
+        <p id="thirdData" class="card-text">GitHub : <a target="_blank" href="https://${gitHub}@github.com"
+        >${gitHub}</a</p>
       </div>
     </div>
   </div>
@@ -91,7 +87,7 @@ const generateIntern = ({ name, email, id, role, school }) => {
   <!-- One Employee-->
   <div class="col">
     <div
-      class="container card-body border border-dark"
+      class="container card-body"
       style="width: 18rem"
     >
       <!-- Name -->
@@ -109,8 +105,8 @@ const generateIntern = ({ name, email, id, role, school }) => {
       </div>
       <div class="col">
         <p id="id" class="card-text">ID : ${id}</p>
-        <p id="email" class="card-text"><a href="#">email: ${email}: </a></p>
-        <p id="thirdData" class="card-text">School: ${school} </p>
+        <p id="email" class="card-text">email: <a target="_blank" href="https://${email}">${email}: </a></p>
+        <p id="thirdData" class="card-text">School : ${school} </p>
       </div>
     </div>
   </div>
@@ -131,13 +127,19 @@ const generateHtml = (...team) => {
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
           crossorigin="anonymous"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap"
+          rel="stylesheet"
+        />
         <link rel="stylesheet" href="./style.css" />
         <title>Team Profile Generator</title>
       </head>
       <body>
         <!-- Header -->
         <header id="header" class="text-center pb-3">
-          <h1>My team</h1>
+          <h1>My Team</h1>
         </header>
     
         <main class="container">
