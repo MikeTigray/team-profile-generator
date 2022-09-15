@@ -34,7 +34,7 @@ Especially great for developers working in teams, lead by one manager and member
 
 ## <a id="testing">Testing</a>
 
-N/A
+Tested using jest package.
 
 ## <a id="license">License information</a>
 
@@ -49,3 +49,9 @@ For any additional questions, you can email me at:
 You can find my GitHub at:
 
 [MikeTigray](https://MikeTigray@github.com)
+
+## Video & Github repo link
+
+#### 🎥 [Walkthrough video link](https://youtu.be/gPaEGzdEZ0w)
+
+#### [Github repo link](https://github.com/MikeTigray/team-profile-generator)

@@ -40,7 +40,7 @@ const generateManager = ({ name, id, email, officeNumber, role }) => {
         </div>
         <div class="col">
           <p id="id" class="card-text">ID : ${id}</p>
-          <p id="email" class="card-text">email: <a target="_blank" href="https://${email}">${email}: </a></p>
+          <p id="email" class="card-text">email: <a target="_blank" href="https://${email}">${email} </a></p>
           <p id="thirdData" class="card-text">office number : ${officeNumber} </p>
         </div>
       </div>
@@ -72,7 +72,7 @@ const generateEngineer = ({ name, email, id, role, gitHub }) => {
       </div>
       <div class="col">
         <p id="id" class="card-text">ID : ${id}</p>
-        <p id="email" class="card-text">email: <a target="_blank" href="https://${email}">${email}: </a></p>
+        <p id="email" class="card-text">email: <a target="_blank" href="https://${email}">${email} </a></p>
         <p id="thirdData" class="card-text">GitHub : <a target="_blank" href="https://${gitHub}@github.com"
         >${gitHub}</a</p>
       </div>
@@ -105,7 +105,7 @@ const generateIntern = ({ name, email, id, role, school }) => {
       </div>
       <div class="col">
         <p id="id" class="card-text">ID : ${id}</p>
-        <p id="email" class="card-text">email: <a target="_blank" href="https://${email}">${email}: </a></p>
+        <p id="email" class="card-text">email: <a target="_blank" href="https://${email}">${email} </a></p>
         <p id="thirdData" class="card-text">School : ${school} </p>
       </div>
     </div>

@@ -21,3 +21,6 @@ svg {
 .card-body {
   box-shadow: 3px 5px;
 }
+a {
+  text-decoration: none;
+}
